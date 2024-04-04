@@ -8,20 +8,18 @@ spec:
   generators:
     - pullRequest:
         github:
-          owner: mtougeron
+          owner: asarenkansah
           repo: hundreds-of-clusters-demo
           # Optional, but useful so that you don't have rate-limiting problems if
           # using a private cluster but it's better to use a webhook if you can
           # https://argocd-applicationset.readthedocs.io/en/stable/Generators-Pull-Request/#webhook-configuration
-          tokenRef:
-            secretName: github-token
-            key: token
+          
   template:
     metadata:
       name: 'pr-demo--{{branch}}--pr-{{number}}'
     spec:
       source:
-        repoURL: 'https://github.com/mtougeron/hundreds-of-clusters-demo.git'
+        repoURL: 'https://github.com/asarenkansah/hundreds-of-clusters-demo.git'
         targetRevision: 'HEAD'
         path: apps/vcluster-generator
         helm:
